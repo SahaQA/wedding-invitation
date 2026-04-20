@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" fill="none" stroke="#8f3f2a" stroke-width="1.2">
+  <circle cx="70" cy="70" r="60" stroke-dasharray="2 3"></circle>
+  <circle cx="70" cy="70" r="42"></circle>
+  <circle cx="70" cy="70" r="24"></circle>
+  <circle cx="70" cy="70" r="6" fill="#8f3f2a"></circle>
+  <g>
+    <circle cx="70" cy="15" r="3" fill="#8f3f2a"></circle>
+    <circle cx="70" cy="125" r="3" fill="#8f3f2a"></circle>
+    <circle cx="15" cy="70" r="3" fill="#8f3f2a"></circle>
+    <circle cx="125" cy="70" r="3" fill="#8f3f2a"></circle>
+    <circle cx="30" cy="30" r="2" fill="#8f3f2a"></circle>
+    <circle cx="110" cy="30" r="2" fill="#8f3f2a"></circle>
+    <circle cx="30" cy="110" r="2" fill="#8f3f2a"></circle>
+    <circle cx="110" cy="110" r="2" fill="#8f3f2a"></circle>
+  </g>
+  <g stroke-width="0.8">
+    <path d="M70 28 Q82 40 70 52 Q58 40 70 28 Z"></path>
+    <path d="M70 88 Q82 100 70 112 Q58 100 70 88 Z"></path>
+    <path d="M28 70 Q40 58 52 70 Q40 82 28 70 Z"></path>
+    <path d="M88 70 Q100 58 112 70 Q100 82 88 70 Z"></path>
+  </g>
+  <g stroke-width="0.6" opacity="0.7">
+    <path d="M70 46 L70 54 M70 86 L70 94 M46 70 L54 70 M86 70 L94 70"></path>
+    <path d="M52 52 L57 57 M83 83 L88 88 M52 88 L57 83 M83 57 L88 52"></path>
+  </g>
+</svg>
