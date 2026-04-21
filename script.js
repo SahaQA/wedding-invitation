@@ -6,8 +6,12 @@ function toBn(n) {
 }
 
 // ============ Countdown Timer ============
+var countdownEl = document.getElementById('countdown');
+var countdownTargetISO = (countdownEl && countdownEl.dataset.target) || '2026-05-03T20:30:00+06:00';
+var countdownTarget = new Date(countdownTargetISO).getTime();
+
 function tickCountdown() {
-  var target = new Date('2026-05-03T20:30:00+05:30').getTime();
+  var target = countdownTarget;
   var now = Date.now();
   var diff = Math.max(0, target - now);
 
@@ -29,79 +33,25 @@ function tickCountdown() {
 tickCountdown();
 setInterval(tickCountdown, 1000);
 
-// ============ Theme Switcher ============
-var themeToggle = document.getElementById('themeToggle');
-var themeNav = document.getElementById('themeNav');
-var themeOptions = document.querySelectorAll('.theme-options button');
-
-themeToggle.addEventListener('click', function () {
-  themeNav.classList.toggle('open');
-});
-
-// Close theme nav when clicking outside
-document.addEventListener('click', function (e) {
-  if (!themeNav.contains(e.target)) {
-    themeNav.classList.remove('open');
-  }
-});
-
-themeOptions.forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var dir = btn.dataset.dir;
-    document.body.className = 'dir-' + dir;
-    themeOptions.forEach(function (b) {
-      b.classList.toggle('active', b.dataset.dir === dir);
-    });
-    themeNav.classList.remove('open');
-  });
-});
-
-// ============ Music Player (placeholder) ============
+// ============ Music Player ============
 var playBtn = document.getElementById('playBtn');
-var playing = false;
+var bgMusic = document.getElementById('bgMusic');
 
-if (playBtn) {
+if (playBtn && bgMusic) {
   playBtn.addEventListener('click', function () {
-    playing = !playing;
-    playBtn.textContent = playing ? '\u23F8' : '\u25B6';
+    if (bgMusic.paused) {
+      bgMusic.play();
+    } else {
+      bgMusic.pause();
+    }
   });
-}
 
-// ============ Add Wish ============
-var addWishBtn = document.getElementById('addWish');
-
-if (addWishBtn) {
-  addWishBtn.addEventListener('click', function () {
-    var msg = prompt('\u0986\u09AA\u09A8\u09BE\u09B0 \u09B6\u09C1\u09AD\u09C7\u09C1\u09CD\u099B\u09BE \u09B2\u09BF\u0996\u09C1\u09A8:');
-    if (!msg) return;
-    var name = prompt('\u0986\u09AA\u09A8\u09BE\u09B0 \u09A8\u09BE\u09AE:');
-    if (!name) return;
-
-    var el = document.createElement('div');
-    el.className = 'postcard visible';
-    el.style.setProperty('--r', (Math.random() * 4 - 2) + 'deg');
-
-    var pEl = document.createElement('p');
-    pEl.textContent = '\u201C' + msg + '\u201D';
-    el.appendChild(pEl);
-
-    var sigEl = document.createElement('div');
-    sigEl.className = 'sig';
-    sigEl.textContent = '\u2014 ' + name;
-    el.appendChild(sigEl);
-
-    addWishBtn.before(el);
+  bgMusic.addEventListener('play', function () {
+    playBtn.textContent = '\u23F8';
   });
-}
 
-// ============ RSVP Form ============
-var rsvpForm = document.getElementById('rsvpForm');
-
-if (rsvpForm) {
-  rsvpForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    alert('\u09A7\u09A8\u09CD\u09AF\u09AC\u09BE\u09A6! \u0986\u09AA\u09A8\u09BE\u09B0 \u0989\u09A4\u09CD\u09A4\u09B0 \u0997\u09C3\u09B9\u09C0\u09A4 \u09B9\u09AF\u09BC\u09C7\u099B\u09C7\u0964');
-    rsvpForm.reset();
+  bgMusic.addEventListener('pause', function () {
+    playBtn.textContent = '\u25B6';
   });
 }
 

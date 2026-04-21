@@ -1,0 +1,21 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/i/813b240abb99", "destination": "/invitations/813b240abb99.html" },
+    { "source": "/i/6b2e25346e37", "destination": "/invitations/6b2e25346e37.html" },
+    { "source": "/i/1b095ccc57ca", "destination": "/invitations/1b095ccc57ca.html" }
+  ],
+  "redirects": [
+    { "source": "/invitations/(.*)", "destination": "/", "permanent": false },
+    { "source": "/i", "destination": "/", "permanent": false }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
+}
