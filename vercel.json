@@ -1,5 +1,4 @@
 {
-  "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
     { "source": "/i/813b240abb99", "destination": "/invitations/813b240abb99.html" },
